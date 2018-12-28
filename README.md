@@ -37,7 +37,6 @@ npm run build
 |       ├── static //js与css的目录
 |       ├── index.html //页面html文件
 |       ├── favicon.ico //页面图标
-|       └── manifest.json //安装相关页面配置
 ├── public // 非js与css的资源
 ├── package.json
 ├── tsconfig.json // ts的编译设置
