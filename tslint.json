@@ -1,0 +1,20 @@
+{
+  "defaultSeverity": "warning",
+  "extends": [
+    "tslint:recommended"
+  ],
+  "jsRules": {},
+  "rules": {
+    "no-console": false,
+    "ordered-imports": false,
+    "object-literal-sort-keys": false,
+    "interface-name": false,
+    "no-trailing-whitespace": false,
+    "member-access": false,
+    "max-line-length": false,
+    "comment-format": [false, "check-space"],
+    "semicolon": [true, "always", "ignore-bound-class-methods"],
+    "no-unused-expression": false
+  },
+  "rulesDirectory": []
+}
