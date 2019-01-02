@@ -90,7 +90,7 @@ module.exports = {
                         loader: require.resolve('babel-loader'),
                         query: {
                             cacheDirectory: true,
-                            plugins: [['import', {libraryName: 'antd', style: 'true'}]],
+                            plugins: [['import', {libraryName: 'antd-mobile', style: 'true'}]],
                         },
                     },
                     {

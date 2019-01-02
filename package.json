@@ -4,9 +4,9 @@
   "private": true,
   "author": "WangTieZhu",
   "scripts": {
-    "start": "npx node@6 scripts/start.js ",
-    "build": "npx node@6 scripts/build.js",
-    "test": "npx node@6 scripts/test.js --env=jsdom"
+    "start": "node scripts/start.js ",
+    "build": "node scripts/build.js",
+    "test": "node scripts/test.js --env=jsdom"
   },
   "dependencies": {
     "antd-mobile": "^2.2.6",
@@ -18,13 +18,15 @@
     "react-router-dom": "^4.3.1"
   },
   "devDependencies": {
-    "@babel/core": "^7.0.1",
+    "@babel/core": "^7.2.2",
     "@babel/plugin-proposal-class-properties": "^7.0.0",
     "@babel/plugin-proposal-decorators": "^7.0.0",
     "@babel/plugin-proposal-optional-chaining": "^7.0.0",
     "@babel/plugin-syntax-dynamic-import": "^7.0.0",
+    "@babel/plugin-transform-typescript": "^7.2.0",
     "@babel/preset-env": "^7.0.0",
     "@babel/preset-react": "^7.0.0",
+    "@babel/preset-typescript": "^7.1.0",
     "@babel/runtime": "^7.0.0",
     "@types/jest": "^23.3.10",
     "@types/node": "^10.12.10",
@@ -36,8 +38,9 @@
     "@types/react-router-dom": "4.2.7",
     "autoprefixer": "7.1.6",
     "awesome-typescript-loader": "^5.2.1",
+    "babel-core": "7.0.0-bridge.0",
     "babel-eslint": "7.2.3",
-    "babel-jest": "20.0.3",
+    "babel-jest": "23.6.0",
     "babel-loader": "^8.0.0-beta.6",
     "babel-plugin-import": "^1.8.0",
     "case-sensitive-paths-webpack-plugin": "2.1.2",
@@ -58,7 +61,7 @@
     "happypack": "^5.0.0",
     "hard-source-webpack-plugin": "^0.12.0",
     "html-webpack-plugin": "^4.0.0-beta.5",
-    "jest": "20.0.4",
+    "jest": "23.6.0",
     "less": "^3.8.1",
     "less-loader": "4.1.0",
     "mini-css-extract-plugin": "^0.5.0",

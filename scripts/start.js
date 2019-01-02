@@ -31,6 +31,22 @@ if (!checkRequiredFiles([paths.appHtml, paths.appIndexJs])) {
     process.exit(1);
 }
 
+function viewProcessMessage(name, cb) {
+    let cmd = process.platform === 'win32' ? 'tasklist' : 'ps aux'
+    exec(cmd, function (err, stdout, stderr) {
+        if (err) {
+            return console.error(err)
+        }
+        stdout.split('\n').filter((line) => {
+            let processMessage = line.trim().split(/\s+/)
+            let processName = processMessage[0] //processMessage[0]进程名称 ， processMessage[1]进程id
+            if (processName === name && parseInt(processMessage[4].replace(new RegExp(",", "gm"), "")) >= 900000) {
+                return cb(processMessage)
+            }
+        })
+    })
+}
+
 console.log("正在清空文件夹...");
 fs.emptyDirSync(paths.appBuild);
 // First, read the current file sizes in build directory.
@@ -50,6 +66,15 @@ measureFileSizesBeforeBuild(paths.appBuild)
     .then(
         () => {
             console.log(chalk.green("监听文件修改中...\n"));
+            //定时检查node进程, 关闭其中内存占用过高的
+            //ps: 暂时不清楚是什么原因导致有一个node进程疯狂占用内存,但是关闭掉它不影响编译
+
+            setInterval(() => {
+                viewProcessMessage("node.exe", (message) => {
+                    process.kill(message[1]);
+                    console.log("杀死了一个占用内存 " + message[4] + " K 的node进程");
+                })
+            }, 1000);
         },
         err => {
             console.log(chalk.red('构建失败\n'));
