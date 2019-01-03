@@ -16,18 +16,24 @@
 
 ### 安装初始化
 ```
-npm install
+npm install | yarn install
 ```
 
 ### 启动&调试
 ```
-npm run start
+npm run start | yarn start
 ```
 
 ### 编译
 ```
-npm run build
+npm run build | yarn build
 ```
+
+### 测试
+```
+npm run test | yarn test
+```
+
 ### 目录结构
 ```
 .
