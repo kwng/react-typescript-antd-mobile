@@ -23,7 +23,8 @@ const checkRequiredFiles = require('react-dev-utils/checkRequiredFiles');
 const formatWebpackMessages = require('react-dev-utils/formatWebpackMessages');
 const FileSizeReporter = require('react-dev-utils/FileSizeReporter');
 const printBuildError = require('react-dev-utils/printBuildError');
-
+const childProcess = require("child_process");
+const exec = childProcess.exec;
 const measureFileSizesBeforeBuild = FileSizeReporter.measureFileSizesBeforeBuild;
 
 // Warn and crash if required files are missing
@@ -141,7 +142,7 @@ function build() {
             }
 
             console.log(`项目文件已经构建在 ${chalk.cyan(paths.appBuild)} 目录下\n`);
-            console.log("当前内存占用: " + chalk.yellow(`${process.memoryUsage().rss/1000/1000} MB`));
+            console.log("当前内存占用: " + chalk.yellow(`${(process.memoryUsage().rss/1000/1000).toFixed(2)} MB`));
             console.log(`当前时间: ${chalk.cyan(new Date().toLocaleTimeString())}`);
             reslove();
         })

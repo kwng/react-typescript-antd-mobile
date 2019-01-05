@@ -11,6 +11,7 @@ const PreloadWebpackPlugin = require('preload-webpack-plugin');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin")
 const getClientEnvironment = require('./env')
 const paths = require('./paths')
+const babelOptions = require('./babelOptions');
 
 const publicPath = '/'
 
@@ -76,7 +77,8 @@ module.exports = {
                                     useCache: true,
                                     useBabel: true,
                                     babelOptions: {
-                                        babelrc: true,
+                                        babelrc: false,
+                                        ...babelOptions,
                                     },
                                     babelCore: '@babel/core',
                                 },
@@ -90,7 +92,7 @@ module.exports = {
                         loader: require.resolve('babel-loader'),
                         query: {
                             cacheDirectory: true,
-                            plugins: [['import', {libraryName: 'antd-mobile', style: 'true'}]],
+                            ...babelOptions,
                         },
                     },
                     {

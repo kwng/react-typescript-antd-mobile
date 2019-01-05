@@ -1,20 +1,10 @@
 {
-  "presets": ["@babel/preset-env", "@babel/preset-react"],
+  "presets": ["@babel/preset-env", "@babel/preset-react", "@babel/preset-typescript"],
   "plugins": [
     "@babel/plugin-syntax-dynamic-import",
     ["@babel/plugin-proposal-decorators", { "legacy": true }],
     "@babel/plugin-proposal-class-properties",
     "@babel/plugin-proposal-optional-chaining"
-  ],
-  "env": {
-    "test":{
-      "presets": ["@babel/preset-typescript"]
-    },
-    "development":{
-      "plugins":[["import", { "libraryName": "antd-mobile", "libraryDirectory": "es", "style": true }]]
-    },
-    "production":{
-      "plugins":[["import", { "libraryName": "antd-mobile", "libraryDirectory": "es", "style": true }]]
-    }
-  }
+  ]
 }
+/* test时使用的babel配置 */
